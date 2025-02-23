@@ -2,7 +2,6 @@ package co.analisys.entrenadores.controller;
 
 import co.analisys.entrenadores.dto.EntrenadorDTO;
 import co.analisys.entrenadores.service.interfaces.IEntrenadorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,8 +9,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/entrenadores")
 class EntrenadoresController {
-    @Autowired
-    private IEntrenadorService entrenadorService;
+    private final IEntrenadorService entrenadorService;
+
+    public EntrenadoresController(IEntrenadorService entrenadorService) {
+        this.entrenadorService = entrenadorService;
+    }
 
     @PostMapping
     public EntrenadorDTO agregarEntrenador(@RequestBody EntrenadorDTO entrenadorDTO) {

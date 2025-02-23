@@ -10,7 +10,7 @@ public class DataLoader implements CommandLineRunner {
 
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         Entrenador entrenador1 = new Entrenador(new EntrenadorId("U001"),
                 "Carlos Rodríguez",

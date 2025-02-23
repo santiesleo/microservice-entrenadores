@@ -2,8 +2,6 @@ package co.analisys.entrenadores.dto;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 public class EntrenadorDTO {
     private String id;

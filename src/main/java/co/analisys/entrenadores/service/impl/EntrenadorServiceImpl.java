@@ -14,8 +14,11 @@ import java.util.stream.Collectors;
 @Service
 public class EntrenadorServiceImpl implements IEntrenadorService {
 
-    @Autowired
-    private EntrenadorRepository entrenadorRepository;
+    private final EntrenadorRepository entrenadorRepository;
+
+    public EntrenadorServiceImpl(EntrenadorRepository entrenadorRepository) {
+        this.entrenadorRepository = entrenadorRepository;
+    }
 
     @Override
     public EntrenadorDTO agregarEntrenador(EntrenadorDTO entrenadorDTO) {
@@ -31,9 +34,7 @@ public class EntrenadorServiceImpl implements IEntrenadorService {
 
     @Override
     public boolean verificarDisponibilidad(String id) {
-        return entrenadorRepository.findById(new EntrenadorId(id))
-                .map(entrenador -> true)
-                .orElse(false);
+        return entrenadorRepository.findById(new EntrenadorId(id)).isPresent();
     }
 
     private Entrenador mapToEntity(EntrenadorDTO dto) {
