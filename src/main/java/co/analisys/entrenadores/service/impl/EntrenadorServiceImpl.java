@@ -3,9 +3,9 @@ package co.analisys.entrenadores.service.impl;
 import co.analisys.entrenadores.dto.EntrenadorDTO;
 import co.analisys.entrenadores.model.Entrenador;
 import co.analisys.entrenadores.model.EntrenadorId;
+import co.analisys.entrenadores.model.Especialidad;
 import co.analisys.entrenadores.repository.EntrenadorRepository;
 import co.analisys.entrenadores.service.interfaces.IEntrenadorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,14 +39,14 @@ public class EntrenadorServiceImpl implements IEntrenadorService {
 
     private Entrenador mapToEntity(EntrenadorDTO dto) {
         EntrenadorId entrenadorId = new EntrenadorId(dto.getId());
-        return new Entrenador(entrenadorId, dto.getNombre(), dto.getEspecialidad());
+        return new Entrenador(entrenadorId, dto.getNombre(), new Especialidad(dto.getEspecialidad()));
     }
 
     private EntrenadorDTO mapToDTO(Entrenador entrenador) {
         EntrenadorDTO dto = new EntrenadorDTO();
         dto.setId(entrenador.getId().getEntrenadorIdValue());
         dto.setNombre(entrenador.getNombre());
-        dto.setEspecialidad(entrenador.getEspecialidad());
+        dto.setEspecialidad(entrenador.getEspecialidad().getEspecialidadValue());
         return dto;
     }
 }

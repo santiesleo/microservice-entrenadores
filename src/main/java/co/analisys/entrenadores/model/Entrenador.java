@@ -1,5 +1,6 @@
 package co.analisys.entrenadores.model;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -14,5 +15,6 @@ public class Entrenador {
     @EmbeddedId
     private EntrenadorId id;
     private String nombre;
-    private String especialidad;
+    @Embedded
+    private Especialidad especialidad;
 }
