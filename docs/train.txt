@@ -1,0 +1,7 @@
+curl --location 'http://localhost:8080/realms/gimnasio/protocol/openid-connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'client_id=entrenadores-service' \
+--data-urlencode 'client_secret=nKIZgXqe6UhDHCvB0H19eUAtM1z9tbPp' \
+--data-urlencode 'username=train' \
+--data-urlencode 'password=train1'
